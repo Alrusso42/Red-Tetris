@@ -1,20 +1,16 @@
-// src/App.js
+// App.js
 import React from 'react';
-import HomePage from './HomePage'; // Import de notre composant HomePage
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Pour la navigation
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './HomePage';
+import RoomPage from './RoomPage';
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          {/* Définir la route pour la page d'accueil */}
-          <Route path="/" element={<HomePage />} />
-          {/* Vous pouvez ajouter d'autres routes ici, par exemple /play, /about */}
-        </Routes>
-      </div>
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/rooms" element={<RoomPage />} />
+    </Routes>
   );
-}
+};
 
 export default App;
