@@ -1,0 +1,75 @@
+.home-page {
+  background-image: url('/public/maxresdefault.jpg'); /* Pour une image dans public */
+  background-size: cover; /* Pour couvrir toute la page */
+  background-position: center; /* Centrer l'image */
+  background-repeat: no-repeat; /* Ne pas répéter l'image */
+  min-height: 100vh; /* S'assurer que la page occupe toute la hauteur de l'écran */
+  color: white; /* Exemple : couleur de texte pour contraster avec l'image */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px; /* Largeur */
+  height: 300px; /* Hauteur */
+  border: 5px solid #ffcc00; /* Bordure jaune vif */
+  border-radius: 0; /* Pas de coins arrondis pour un look rétro */
+  background: linear-gradient(135deg, #00008b, #0000ff); /* Dégradé bleu foncé */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5); /* Éclairage */
+  margin: 50px auto; /* Centrage horizontal */
+  margin-bottom: 500px;
+  position: relative; /* Nécessaire pour les décorations */
+}
+
+.input-label {
+  font-family: 'Press Start 2P', cursive; /* Style rétro */
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 15px;
+  text-align: center;
+  text-shadow: 0 0 5px #ffcc00, 0 0 10px #ff6600; /* Effet néon */
+}
+
+.input-box {
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  color: #00008b; /* Bleu rétro */
+  border: 2px solid #ff6600;
+  background-color: #ffcc00;
+  outline: none;
+  border-radius: 0; /* Pas de coins arrondis */
+}
+
+.input-box:focus {
+  border-color: #00ff00; /* Bordure verte au focus */
+  box-shadow: 0 0 5px #00ff00;
+}
+
+.welcome-text {
+  font-family: 'Press Start 2P', cursive; /* Style rétro */
+  font-size: 1.9rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px; /* Réduit l'espacement sous le texte */
+  margin-top: 0px; /* Enlève la marge au-dessus */
+  text-shadow: 0 0 5px #ff6600, 0 0 10px #ffcc00; /* Effet néon */
+}
+
+.welcome-text2 {
+  font-family: 'Press Start 2P', cursive; /* Style rétro */
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px; /* Réduit l'espacement sous le texte */
+  margin-top: 0px; /* Enlève la marge au-dessus */
+  text-shadow: 0 0 5px #ff6600, 0 0 10px #ffcc00; /* Effet néon */
+}
