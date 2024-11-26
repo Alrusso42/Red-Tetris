@@ -1,8 +1,8 @@
 // App.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './HomePage';
-import RoomPage from './RoomPage';
+import HomePage from './components/Home/HomePage';
+import RoomPage from './components/Rooms/RoomPage';
 
 const App = () => {
   return (

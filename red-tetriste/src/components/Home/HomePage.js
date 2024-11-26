@@ -6,13 +6,24 @@ import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const [pseudoInput, setPseudoInput] = useState('');
+  const [error, setError] = useState(false);
   const dispatch = useDispatch(); // Initialiser dispatch
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'SET_PSEUDO', payload: pseudoInput }); // Dispatch de l'action pour mettre à jour le pseudo
-    navigate('/rooms'); // Redirection vers la page des rooms
+    if (pseudoInput === "")
+    {
+      setError(true);
+
+    }
+    else
+    {
+      dispatch({ type: 'SET_PSEUDO', payload: pseudoInput }); // Dispatch de l'action pour mettre à jour le pseudo
+      navigate('/rooms'); // Redirection vers la page des rooms
+
+    }
+    
   };
 
   return (
@@ -32,6 +43,9 @@ const HomePage = () => {
         />
         
         <button onClick={handleSubmit}>Valider</button>
+        <div className="error-msg">{ error ?
+        "erreur , il manque un pseudo !" : ""
+        } </div>
       </div>
     </div>
   );

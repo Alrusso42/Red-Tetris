@@ -73,3 +73,11 @@
   margin-top: 0px; /* Enlève la marge au-dessus */
   text-shadow: 0 0 5px #ff6600, 0 0 10px #ffcc00; /* Effet néon */
 }
+
+.error-msg {
+  font-family: 'Press Start 2p';
+  font-size: 1rem;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
