@@ -1,7 +1,7 @@
 // src/HomePage.js
 import './HomePage.css';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'; // Importer useDispatch
+import { useDispatch, useSelector } from 'react-redux'; // Importer useDispatch
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {

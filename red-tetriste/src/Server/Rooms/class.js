@@ -1,8 +1,7 @@
 class Room {
     constructor(name) {
         this._name = name;
-        this._player1 = "";
-        this._player2 = "";
+        this._players = [];
         this._countPlayers = 1;
         this._status = WAITING;
         this._mode = VERSUS;
@@ -16,16 +15,10 @@ class Room {
         return this._name;
     }
 
-    get playerOne() {
-        return this._player1;
-    }
-
-    get playerTwo() {
-        return this._player2;
-    }
     
-    get countPlayer() {
-        return this._countPlayers;
+    get players() {
+        return this._players;
+
     }
 
     get status(){
