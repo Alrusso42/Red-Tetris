@@ -9,8 +9,9 @@ const initialState = {
 
 // Nommage de l'action
 const SET_PSEUDO = 'SET_PSEUDO';
-const CHEK_PSEUDO = 'CHECK_PSEUDO';
-const ADD_PSEUDO = 'ADD_PSEUDOLIST';
+const CHECK_PSEUDO = 'CHECK_PSEUDO';
+const ADD_PSEUDOLIST = 'ADD_PSEUDOLIST';
+const REMOVE_PSEUDOLIST = 'REMOVE_PSEUDOLIST';
 
 // Methode de l'action
 export const setPseudo = (pseudo) => ({
@@ -28,6 +29,11 @@ export const addPseudoList = (pseudo) => ({
   payload: pseudo,
 })
 
+export const removePseudoList = (pseudo) => ({
+  type: REMOVE_PSEUDOLIST,
+  payload: pseudo,
+})
+
 
 // Créer le reducer qui gère le changement de pseudo
 const pseudoReducer = (state = initialState, action) => {
@@ -36,12 +42,25 @@ const pseudoReducer = (state = initialState, action) => {
       return { ...state, pseudo: action.payload, error: '' };
     case CHECK_PSEUDO:
       const pseudoExists = state.pseudolist.includes(action.payload);
+      if (pseudoExists) {
+        return {
+          ...state,
+          error: 'Erreur: Le pseudo est deja pris'
+        };
+      }
+      if (action.payload.trim().length === 0 ) {
+        return { ...state, error: 'Erreur : le pseudo est vide'};
+      }
       return {
         ...state,
-        error: pseudoExists ? 'Le pseudo est deja pris' : '',
-      };
+        pseudo: action.payload,
+        pseudolist: [...state.pseudolist, action.payload],
+        error: '',
+      };    
     case ADD_PSEUDOLIST:
       return { ...state , pseudolist: [...state.pseudolist, action.payload], error: ''};
+    case REMOVE_PSEUDOLIST:
+      return {...state, pseudolist: state.pseudolist.filter((p) => p !== action.payload),};
     default:
       return state;
   }

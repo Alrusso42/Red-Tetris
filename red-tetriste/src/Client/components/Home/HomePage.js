@@ -1,27 +1,47 @@
 // src/HomePage.js
 import './HomePage.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; // Importer useDispatch
+import {setPseudo, checkPseudo, addPseudoList, removePseudoList} from '../../redux/reducers/pseudoReducer';
 import { useNavigate } from 'react-router-dom';
+import store from '../../redux/store';
 
 const HomePage = () => {
   const [pseudoInput, setPseudoInput] = useState('');
-  const [error, setError] = useState(false);
+  var error = useSelector(state => state.pseudo.error)
   const dispatch = useDispatch(); // Initialiser dispatch
   const navigate = useNavigate();
 
+  //Enleve le pseudo quand on quitte la page
+  useEffect(() => {
+    const handleUnload = () => {
+      const pseudo = localStorage.getItem('pseudo');
+      if (pseudo) {
+        dispatch(removePseudoList(pseudo));
+      }
+    };
+  
+  window.addEventListener('beforeunload', handleUnload);
+  return () => {
+    window.removeEventListener('beforeunload', handleUnload);
+  };
+  }, [dispatch]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (pseudoInput === "")
-    {
-      setError(true);
 
-    }
-    else
-    {
-      dispatch({ type: 'SET_PSEUDO', payload: pseudoInput }); // Dispatch de l'action pour mettre à jour le pseudo
-      navigate('/rooms'); // Redirection vers la page des rooms
+    //verifie si le pseudo existe et si il est vide
+    dispatch(checkPseudo(pseudoInput));
 
+    //recupere l'erreur
+    error =  store.getState().pseudo.error;
+
+
+    //Si aucune erreur on envoie l'user sur la page rooms
+    if (!error) {
+      dispatch(setPseudo(pseudoInput));
+      dispatch(addPseudoList(pseudoInput));
+      navigate('/rooms')
     }
     
   };
@@ -43,9 +63,7 @@ const HomePage = () => {
         />
         
         <button onClick={handleSubmit}>Valider</button>
-        <div className="error-msg">{ error ?
-        "erreur , il manque un pseudo !" : ""
-        } </div>
+        <div className="error-msg">{error}</div>
       </div>
     </div>
   );
