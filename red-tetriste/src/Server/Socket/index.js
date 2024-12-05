@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + '/index.html');
 })
 
-http.listen(3000, function(){
-    console.log('Server running on 3000')
+server.listen(4000, function(){
+    console.log('Server running on 4000')
 })

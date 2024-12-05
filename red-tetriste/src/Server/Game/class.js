@@ -1,6 +1,6 @@
-class Room {
-    constructor(name) {
-        this._name = name;
+class Game {
+    constructor(roomname) {
+        this._roomname = roomname;
         this._players = [];
         this._countPlayers = 1;
         this._status = WAITING;
@@ -9,10 +9,10 @@ class Room {
         this._password = ""; 
     }
 
-    //Fu GET
+    //Functions GET
 
-    get name() {
-        return this._name;
+    get roomnamename() {
+        return this._roomname;
     }
 
     
@@ -53,10 +53,7 @@ class Room {
         this._status = status;
     }
 
-    set playerTwo(playerTwo) {
-        this._player2
-    }
-
+    
     //ANOTHER FUNCTIONS 
 
     switchPrivate() {
