@@ -1,0 +1,32 @@
+.header{
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    border-bottom: 1px black solid;
+}
+
+.pseudo {
+    font-family: 'Tetris';
+    text-shadow: 1px 2px 5px rgb(255, 0, 0);
+    color: rgb(2, 2, 2);
+}
+
+.create-room{
+     height: 50%;
+     background-image: linear-gradient(black, rgb(74, 71, 71));
+     box-shadow: 1px 1px 2px red;
+     text-shadow: 1px 2px 5px red;
+     font-size: large;
+     padding: 15px 32px;
+     border: none;
+     color: whitesmoke;
+     text-align: center;
+     font-family: 'Tetris';
+     border-radius: 2px;
+     display: inline-block;
+     margin-left: 15%;    
+}
+
+.create-room:hover {
+    opacity: 85%;
+}

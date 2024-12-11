@@ -1,4 +1,5 @@
 // src/RoomPage.js
+import "./RoomPage.css"
 import React from 'react';
 import { useSelector } from 'react-redux'; // Importer useSelector
 
@@ -10,15 +11,11 @@ const RoomPage = () => {
 
   return (
     <div className="room-page">
-      <h1>Bienvenue {pseudo} !</h1>
-      <h2>Choisissez une room :</h2>
-      <ul>
-        {rooms.map((room, index) => (
-          <li key={index}>
-            <button>{room}</button>
-          </li>
-        ))}
-      </ul>
+      <div className="header">
+        <h2 className="pseudo">{pseudo}</h2>
+        <button className="create-room">Create Room</button>
+      </div>
+      <div className="room-list"></div>
     </div>
   );
 };
